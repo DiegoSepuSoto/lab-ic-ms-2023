@@ -28,6 +28,11 @@ Revisa el contenido del archivo `docker-compose.yml`.
 
 ## ETAPA 2
 
-Escribe respuestas de la etapa 2 acá
+```
+¿Qué pasa si cambias el nombre del servicio de `postgres` a `db`? ¿Qué otros cambios tendrías que hacer?
+```
+- Al cambiar el nombre del servicio a **db** en el archivo docker-compose.yml (en la línea 3) no va a funcionar el comando tal como funcionó anteriormente, dado que es necesario cambiar también en nuestro archivo de secretos **.env** el nombre del servidor de PostgreSQL *POSTGRES_SERVER* de la siguiente manera:
 
-...
+    ```env
+    POSTGRES_SERVER=db
+    ```
