@@ -78,3 +78,26 @@ información (**8080**)
 ```
 - No funciona, dado que dentro del contenedor de Docker existe una referencia muy distinta al concepto de 
 **localhost** que se utiliza en otros sistemas diferentes, como nuestro equipo MacOS/Windows/Linux
+
+## ETAPA 4
+
+```
+Compara los archivos `Dockerfile` de `movies-api` y `movies-front`. 
+```
+- Existe una diferencia en el lenguaje que fueron desarrolladas las soluciones, al ser compilado, el desarrollo
+en Go requiere ser construido antes de ser ejecutado; no así la solución de NodeJS
+
+```
+Compara el atributo `build` del servicio `movies-api` con el de `movies-front`. 
+¿Cuál es la diferencia? 
+```
+- La sentencia build para el artefacto de movies-api permite ser más específico respecto al contexto de 
+construcción de la imagen de docker y su posterior ejecución. Al poder señalar **build.context**, además también
+podemos señalar el *Dockerfile* (con *build.dockerfile*) que queremos que se ejecute, en el caso que tengamos archivos distintos.
+
+
+```
+¿Qué pasa si los dejas iguales?
+```
+- Al dejarlos ambos iguales, dado que poseen una estructura de contexto similar **(ambos poseen su dockerfile en la ruta raíz junto con su código fuente)** 
+no hay cambios perceptibles en la construcción o ejecución del sistema completo
