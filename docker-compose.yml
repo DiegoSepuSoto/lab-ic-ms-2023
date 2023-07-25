@@ -7,6 +7,11 @@ services:
     image: movies_api
     command: "/movies-api -b ${BIND_IP} -p ${BIND_PORT}"
     environment:
+      - POSTGRES_SERVER
+      - POSTGRES_USER
+      - POSTGRES_PASSWORD
+      - POSTGRES_DB
+      - POSTGRES_PORT
       - BIND_IP
       - BIND_PORT
     expose:
